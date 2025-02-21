@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown until the mid term elections home stretch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 1.2em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Countdown until the mid term elections home stretch</h1>
+        <p id="days-remaining">Days Remaining: Calculating...</p>
+        <p id="percent-elapsed">Percentage Elapsed: Calculating...</p>
+    </div>
+
+    <script>
+        // Define the start and end dates
+        const startDate = new Date('January 20, 2025');
+        const endDate = new Date('August 1, 2026');
+        const today = new Date(); // Uses current date and time dynamically
+
+        // Calculate total days between start and end
+        const totalTime = endDate - startDate;
+        const totalDays = Math.floor(totalTime / (1000 * 60 * 60 * 24));
+
+        // Calculate days remaining
+        const timeRemaining = endDate - today;
+        const daysRemaining = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+
+        // Calculate elapsed time and percentage
+        const timeElapsed = today - startDate;
+        const percentElapsed = ((timeElapsed / totalTime) * 100).toFixed(1);
+
+        // Update the DOM
+        document.getElementById('days-remaining').textContent = `Days Remaining: ${daysRemaining}`;
+        document.getElementById('percent-elapsed').textContent = `Percentage Elapsed: ${percentElapsed}%`;
+    </script>
+</body>
+</html>
